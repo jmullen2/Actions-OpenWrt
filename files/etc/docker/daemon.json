@@ -1,0 +1,6 @@
+{
+"data-root": "/mnt/sda/docker",
+"log-level": "warn",
+"userland-proxy": false,
+"registry-mirrors": ["https://qz5ajy28.mirror.aliyuncs.com"]
+}

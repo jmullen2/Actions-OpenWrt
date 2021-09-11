@@ -1,0 +1,25 @@
+
+config samba
+	option workgroup 'WORKGROUP'
+	option charset 'UTF-8'
+	option description 'Samba on OpenWRT'
+	option homes '1'
+	option macos '1'
+	option name 'Openwrt'
+
+config sambashare
+	option read_only 'no'
+	option force_root '1'
+	option users 'root'
+	option inherit_owner 'yes'
+	option name 'sdc'
+	option path '/mnt/sdc'
+
+config sambashare
+	option name 'sda'
+	option path '/mnt/sda'
+	option read_only 'no'
+	option force_root '1'
+	option users 'root'
+	option inherit_owner 'yes'
+
