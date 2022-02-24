@@ -17,3 +17,5 @@ sshd:x:22:sshd
 transmission:x:224:transmission
 ubus:x:81:ubus
 git:x:6801:
+nfs:x:65537:nfs
+rpc:x:65533:rpc

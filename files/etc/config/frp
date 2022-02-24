@@ -10,13 +10,13 @@ config frp 'common'
 	option enable_http_proxy '0'
 	option protocol 'tcp'
 	option enabled '1'
-	option server_addr 'frp.downk.cc'
-	option server_port '10081'
 	option user 'home'
 	option tls_enable '0'
 	option admin_enable '0'
 	option token 'cdc!@#qwert'
 	option time '0'
+	option server_port '20081'
+	option server_addr 'frp.imgdb.cn'
 
 config proxy
 	option enable '1'
@@ -25,9 +25,9 @@ config proxy
 	option use_encryption '1'
 	option use_compression '1'
 	option local_ip '192.168.1.1'
-	option remote_port '8021'
 	option remark 'lede'
-	option local_port '222'
+	option remote_port '8023'
+	option local_port '22'
 
 config proxy
 	option enable '1'
@@ -37,6 +37,6 @@ config proxy
 	option proxy_protocol_version 'disable'
 	option use_encryption '1'
 	option use_compression '1'
-	option local_ip '192.168.1.154'
 	option remark 'debian'
+	option local_ip '192.168.1.3'
 

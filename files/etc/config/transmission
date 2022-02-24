@@ -47,11 +47,11 @@ config transmission
 	option utp_enabled 'true'
 	option scrape_paused_torrents 'true'
 	option watch_dir_enabled 'false'
-	option enabled '1'
 	option group 'root'
 	option cache_size_mb '512'
 	option rpc_authentication_required 'false'
 	option rename_partial_files '1'
 	option trash_original_torrent_files 'true'
-	option download_dir '/mnt/sdc/downloads'
+	option download_dir '/mnt/sdb3/downloads'
+	option enabled '0'
 

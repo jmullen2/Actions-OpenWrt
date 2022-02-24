@@ -4,29 +4,9 @@ config redirect
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp'
-	option src_dport '22'
 	option dest_ip '192.168.1.1'
 	option dest_port '22'
 	option name 'lede'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp'
-	option src_dport '222'
-	option dest_ip '192.168.1.1'
-	option dest_port '222'
-	option name 'lede'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option dest_ip '192.168.1.154'
-	option name 'debian'
-	option dest_port '22'
 	option src_dport '23'
 
 config redirect
@@ -44,6 +24,16 @@ config redirect
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
+	option src_dport '7891'
+	option dest_ip '192.168.1.1'
+	option dest_port '7891'
+	option name 'clash'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
 	option src_dport '8000'
 	option dest_ip '192.168.1.1'
 	option name 'lede'
@@ -53,11 +43,21 @@ config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
+	option proto 'tcp'
+	option name 'pve'
+	option dest_ip '192.168.1.3'
+	option dest_port '22'
+	option src_dport '22'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '25'
-	option dest_ip '192.168.1.1'
 	option dest_port '25'
 	option name 'mail'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
@@ -65,29 +65,9 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '3000'
-	option dest_ip '192.168.1.1'
 	option name 'mail'
 	option dest_port '3000'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '4000'
-	option dest_ip '192.168.1.1'
-	option name 'gitea'
-	option dest_port '4000'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option dest_ip '192.168.1.1'
-	option src_dport '444'
-	option dest_port '444'
-	option name 'gitea'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
@@ -95,9 +75,9 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '8123'
-	option dest_ip '192.168.1.1'
 	option dest_port '8123'
 	option name 'hass'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
@@ -105,9 +85,9 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '9091'
-	option dest_ip '192.168.1.1'
 	option dest_port '9091'
 	option name 'tr'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
@@ -115,19 +95,9 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '51413'
-	option dest_ip '192.168.1.1'
 	option dest_port '51413'
 	option name 'tr'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8096'
-	option dest_ip '192.168.1.154'
-	option dest_port '8096'
-	option name 'jellyfin'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
@@ -135,25 +105,67 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option src_dport '32400'
-	option dest_ip '192.168.1.154'
 	option dest_port '32400'
 	option name 'plex'
+	option dest_ip '192.168.1.3'
 
 config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
 	option proto 'tcp udp'
-	option dest_ip '192.168.1.154'
-	option name 'test'
-	option src_dport '8001-8099'
-	option dest_port '8001-8099'
+	option src_dport '8096'
+	option dest_ip '192.168.1.3'
+	option dest_port '8096'
+	option name 'emby'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '9269'
+	option dest_ip '192.168.1.3'
+	option dest_port '9269'
+	option name 'wiz'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '4000'
+	option dest_ip '192.168.1.3'
+	option dest_port '4000'
+	option name 'gitea'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '5000'
+	option dest_ip '192.168.1.3'
+	option dest_port '5000'
+	option name 'aliyun'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option dest_ip '192.168.1.3'
+	option src_dport '8001-9000'
+	option dest_port '8001-9000'
+	option name 'multi'
 
 config defaults
 	option syn_flood '1'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
-	option forward 'REJECT'
+	option forward 'ACCEPT'
+	option flow_offloading '1'
+	option flow_offloading_hw '1'
 	option fullcone '0'
 
 config zone
@@ -289,6 +301,11 @@ config include 'shadowsocksr'
 	option path '/var/etc/shadowsocksr.include'
 	option reload '1'
 
+config include 'zerotier'
+	option type 'script'
+	option path '/etc/zerotier.start'
+	option reload '1'
+
 config include 'miniupnpd'
 	option type 'script'
 	option path '/usr/share/miniupnpd/firewall.include'
@@ -298,6 +315,16 @@ config include 'miniupnpd'
 config include 'koolproxy'
 	option type 'script'
 	option path '/var/etc/koolproxy.include'
+	option reload '1'
+
+config include 'openclash'
+	option type 'script'
+	option path '/var/etc/openclash.include'
+	option reload '1'
+
+config include 'unblockmusic'
+	option type 'script'
+	option path '/var/etc/unblockmusic.include'
 	option reload '1'
 
 config rule 'kms'
@@ -310,5 +337,10 @@ config rule 'kms'
 config include 'vssr'
 	option type 'script'
 	option path '/var/etc/vssr.include'
+	option reload '1'
+
+config include 'wrtbwmon'
+	option type 'script'
+	option path '/etc/wrtbwmon.include'
 	option reload '1'
 
