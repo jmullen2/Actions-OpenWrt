@@ -6,9 +6,9 @@ config ddns 'global'
 
 config service 'dnspod'
 	option service_name 'dnspod.cn'
-	option lookup_host 'home.ishield.cn'
-	option domain 'home.ishield.cn'
 	option username '50187'
 	option password 'ac1af3369c949ad3bcc1b403e0746c1e'
 	option enabled '1'
+	option lookup_host 'home.ishield.cn'
+	option domain 'home.ishield.cn'
 
