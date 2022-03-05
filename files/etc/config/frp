@@ -37,6 +37,6 @@ config proxy
 	option proxy_protocol_version 'disable'
 	option use_encryption '1'
 	option use_compression '1'
-	option remark 'debian'
 	option local_ip '192.168.1.3'
+	option remark 'pve'
 
