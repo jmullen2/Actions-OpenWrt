@@ -14,12 +14,28 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: "/"
     headers:
       Host: v2ex.downk.cc
+  udp: true
+- name: 192.74.246.120
+  server: 192.74.246.120
+  port: 39043
+  type: vmess
+  uuid: 1b2f44e4-a810-48a8-b620-a4567b46c9b7
+  alterId: 0
+  cipher: auto
+  tls: true
+  skip-cert-verify: true
+  network: ws
+  ws-opts:
+    path: "/"
+    headers:
+      Host: v2ex.downk.cc
+  udp: true
 - name: 180.215.196.10
   server: 180.215.196.10
   port: 39043
@@ -28,12 +44,13 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: "/"
     headers:
       Host: v2ex.downk.cc
+  udp: true
 - name: 103.84.90.37
   server: 103.84.90.37
   port: 39043
@@ -42,12 +59,13 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: "/"
     headers:
       Host: v2ex.downk.cc
+  udp: true
 - name: 45.137.10.174
   server: 45.137.10.174
   port: 39043
@@ -56,26 +74,13 @@ proxies:
   alterId: 0
   cipher: auto
   tls: true
-  skip-cert-verify: false
+  skip-cert-verify: true
   network: ws
   ws-opts:
     path: "/"
     headers:
       Host: v2ex.downk.cc
-- name: 107.148.144.36
-  server: 107.148.144.36
-  port: 39043
-  type: vmess
-  uuid: 1b2f44e4-a810-48a8-b620-a4567b46c9b7
-  alterId: 0
-  cipher: auto
-  tls: true
-  skip-cert-verify: false
-  network: ws
-  ws-opts:
-    path: "/"
-    headers:
-      Host: v2ex.downk.cc
+  udp: true
 proxy-groups:
 - name: "\U0001F680 节点选择"
   type: select
@@ -83,20 +88,20 @@ proxy-groups:
   - "♻️ 自动选择"
   - DIRECT
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "♻️ 自动选择"
   type: url-test
   url: http://www.gstatic.com/generate_204
   interval: 300
   proxies:
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "\U0001F30D 国外媒体"
   type: select
   proxies:
@@ -104,40 +109,40 @@ proxy-groups:
   - "♻️ 自动选择"
   - "\U0001F3AF 全球直连"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "\U0001F4F2 电报信息"
   type: select
   proxies:
   - "\U0001F680 节点选择"
   - "\U0001F3AF 全球直连"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: Ⓜ️ 微软服务
   type: select
   proxies:
   - "\U0001F3AF 全球直连"
   - "\U0001F680 节点选择"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "\U0001F34E 苹果服务"
   type: select
   proxies:
   - "\U0001F680 节点选择"
   - "\U0001F3AF 全球直连"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "\U0001F4E2 谷歌FCM"
   type: select
   proxies:
@@ -145,10 +150,10 @@ proxy-groups:
   - "\U0001F3AF 全球直连"
   - "♻️ 自动选择"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 - name: "\U0001F3AF 全球直连"
   type: select
   proxies:
@@ -172,10 +177,10 @@ proxy-groups:
   - "\U0001F3AF 全球直连"
   - "♻️ 自动选择"
   - 198.16.35.242
+  - 192.74.246.120
   - 180.215.196.10
   - 103.84.90.37
   - 45.137.10.174
-  - 107.148.144.36
 rules:
 - IP-CIDR,198.18.0.1/16,REJECT,no-resolve
 - DOMAIN-SUFFIX,awesome-hd.me,DIRECT
@@ -219,6 +224,8 @@ rules:
 - "IP-CIDR6,fc00::/7,\U0001F3AF 全球直连,no-resolve"
 - "IP-CIDR6,fe80::/10,\U0001F3AF 全球直连,no-resolve"
 - "IP-CIDR6,fd00::/8,\U0001F3AF 全球直连,no-resolve"
+- "DOMAIN,instant.arubanetworks.com,\U0001F3AF 全球直连"
+- "DOMAIN,setmeup.arubanetworks.com,\U0001F3AF 全球直连"
 - "DOMAIN,router.asus.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,hiwifi.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,leike.cc,\U0001F3AF 全球直连"
@@ -227,10 +234,10 @@ rules:
 - "DOMAIN-SUFFIX,p.to,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,peiluyou.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,phicomm.me,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,router.ctc,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,routerlogin.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,tendawifi.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,zte.home,\U0001F3AF 全球直连"
-- "DOMAIN-SUFFIX,router.ctc,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,ol.epicgames.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,dizhensubao.getui.com,\U0001F3AF 全球直连"
 - "DOMAIN,dl.google.com,\U0001F3AF 全球直连"
@@ -276,25 +283,6 @@ rules:
 - "DOMAIN-KEYWORD,usage,\U0001F6D1 全球拦截"
 - "DOMAIN-KEYWORD,wlmonitor,\U0001F6D1 全球拦截"
 - "DOMAIN-KEYWORD,zjtoolbar,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,admob.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,ads.gmodules.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,ads.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,adservice.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,afd.l.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,badad.googleplex.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,csi.gstatic.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,doubleclick.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,doubleclick.net,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,google-analytics.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,googleadservices.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,googleadsserving.cn,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,googlecommerce.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,googlesyndication.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,mobileads.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,pagead-tpc.l.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,pagead.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,pagead.l.google.com,\U0001F6D1 全球拦截"
-- "DOMAIN-SUFFIX,service.urchin.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,09mk.cn,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,100peng.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,114la.com,\U0001F6D1 全球拦截"
@@ -546,6 +534,7 @@ rules:
 - "DOMAIN-SUFFIX,mobgi.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,mobisage.cn,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,mobvista.com,\U0001F6D1 全球拦截"
+- "DOMAIN-SUFFIX,moogos.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,mopub.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,moquanad.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,mpush.cn,\U0001F6D1 全球拦截"
@@ -640,6 +629,7 @@ rules:
 - "DOMAIN-SUFFIX,uuzu.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,uyunad.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,vamaker.com,\U0001F6D1 全球拦截"
+- "DOMAIN-SUFFIX,vlion.cn,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,voiceads.cn,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,voiceads.com,\U0001F6D1 全球拦截"
 - "DOMAIN-SUFFIX,vpon.com,\U0001F6D1 全球拦截"
@@ -1964,6 +1954,21 @@ rules:
 - "DOMAIN-SUFFIX,update.googleapis.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,www-googletagmanager.l.google.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,www.gstatic.com,\U0001F3AF 全球直连"
+- "DOMAIN,csgo.wmsj.cn,\U0001F3AF 全球直连"
+- "DOMAIN,dl.steam.clngaa.com,\U0001F3AF 全球直连"
+- "DOMAIN,dl.steam.ksyna.com,\U0001F3AF 全球直连"
+- "DOMAIN,dota2.wmsj.cn,\U0001F3AF 全球直连"
+- "DOMAIN,st.dl.bscstorage.net,\U0001F3AF 全球直连"
+- "DOMAIN,st.dl.eccdnx.com,\U0001F3AF 全球直连"
+- "DOMAIN,st.dl.pinyuncloud.com,\U0001F3AF 全球直连"
+- "DOMAIN,steampipe.steamcontent.tnkjmec.com,\U0001F3AF 全球直连"
+- "DOMAIN,steampowered.com.8686c.com,\U0001F3AF 全球直连"
+- "DOMAIN,steamstatic.com.8686c.com,\U0001F3AF 全球直连"
+- "DOMAIN,wmsjsteam.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,cm.steampowered.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,steamchina.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,steamcontent.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,steamusercontent.com,\U0001F3AF 全球直连"
 - DOMAIN-KEYWORD,1drv,Ⓜ️ 微软服务
 - DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
 - DOMAIN-SUFFIX,aadrm.com,Ⓜ️ 微软服务
@@ -2782,10 +2787,12 @@ rules:
 - "DOMAIN-SUFFIX,msftncsi.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,qupu123.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,pdfwifi.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,zhenguanyu.biz,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,zhenguanyu.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,cn,\U0001F3AF 全球直连"
-- "DOMAIN-SUFFIX,中国,\U0001F3AF 全球直连"
-- "DOMAIN-SUFFIX,公司,\U0001F3AF 全球直连"
-- "DOMAIN-SUFFIX,网络,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,xn--fiqs8s,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,xn--55qx5d,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,xn--io0a7i,\U0001F3AF 全球直连"
 - "DOMAIN-KEYWORD,-cn,\U0001F3AF 全球直连"
 - "DOMAIN-KEYWORD,360buy,\U0001F3AF 全球直连"
 - "DOMAIN-KEYWORD,alicdn,\U0001F3AF 全球直连"
@@ -3015,6 +3022,7 @@ rules:
 - "DOMAIN-SUFFIX,playstationnetwork.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,sony.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,sonyentertainmentnetwork.com,\U0001F3AF 全球直连"
+- "DOMAIN-SUFFIX,cm.steampowered.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,steamcontent.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,steamusercontent.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,steamchina.com,\U0001F3AF 全球直连"
@@ -3278,7 +3286,6 @@ rules:
 - "DOMAIN-SUFFIX,oracle.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,oschina.net,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,ourdvs.com,\U0001F3AF 全球直连"
-- "DOMAIN-SUFFIX,paypal.com,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,polyv.net,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,qbox.me,\U0001F3AF 全球直连"
 - "DOMAIN-SUFFIX,qcloud.com,\U0001F3AF 全球直连"
